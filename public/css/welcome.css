@@ -1,0 +1,28 @@
+.juego>a>img{
+    height: 24rem;
+    margin-bottom: 1rem;
+}
+.juego>a>img:hover{
+        transform:scale(1.2);
+        -ms-transform:scale(1.2); 
+        -moz-transform:scale(1.2);
+        -webkit-transform:scale(1.2); 
+        -o-transform:scale(1.2); 
+        filter: brightness(0.3);
+}
+
+.juego>a>img:hover + span{
+    visibility: visible;
+}
+
+span{
+    position: relative;
+    bottom: 50%;
+    color: white;
+    text-transform: uppercase;
+    visibility: hidden;
+}
+
+#contactanos{
+    background-color: gainsboro;
+}
