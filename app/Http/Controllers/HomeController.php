@@ -30,7 +30,7 @@ class HomeController extends Controller
         $listGames = UserList::where('user_id', Auth::id())->with('videogame')->orderBy('videogame_id')->get();
 
         $type = DB::select('SHOW COLUMNS FROM user_lists WHERE Field = "status"')[0]->Type;
-        return $type;
+        
         preg_match('/^enum\((.*)\)$/', $type, $matches);
         $statuses = array();
         foreach (explode(',', $matches[1]) as $value) {
