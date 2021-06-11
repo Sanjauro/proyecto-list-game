@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="main">
-        <link rel="stylesheet" href={{ asset('css/welcome.css') }}>
+        <link rel="stylesheet" href={{ secure_asset('css/welcome.css') }}>
         <h1 class="text-center mt-3">Juegos más Recientes</h1>
         <hr>
         <div id="juegos_recientes" class="row">
