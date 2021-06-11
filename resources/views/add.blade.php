@@ -58,7 +58,7 @@
                     <?php $cont = 0;?>
 
                     @foreach ($categories as $category)
-                    @if (count($videogameCategories)>$cont && $category->id == $videogameCategories[$cont]->category_id)
+                    @if (isset($videogameCategories) && count($videogameCategories)>$cont && $category->id == $videogameCategories[$cont]->category_id)
                         <option selected value="{{$category->id}}">{{$category->name}}</option>
                         {{$cont++}}
                     @else

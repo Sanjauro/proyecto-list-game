@@ -55,6 +55,10 @@ class HomeController extends Controller
 
     public function update(Request $request)
     {
+        $validated = $request->validate([
+            'change-score' => 'integer|between:0,10',
+            'change-status' => 'in:Jugando,Abandonado,Planeado,Completado,Inactivo',
+        ]);
 
         if (request("change-status"))
             DB::table('user_lists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['status' => request("change-status")]);

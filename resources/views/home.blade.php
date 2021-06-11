@@ -69,10 +69,10 @@
                             <form action="{{ route('home.destroy') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="idGame" value="{{ $listGame->videogame->id }}">
-                                <input class="btn btn-danger" type="submit" value="Eliminar">
+                                <input class="btn btn-danger" type="submit" onclick="return confirm('Estás a punto de borrar un videojuego de la lista, ¿estás seguro?')" value="Eliminar">
                             </form>
                             @switch (true)
-                                @case(isset($listGame->score) && $listGame->score>0 && (count($ratins)==0 || $ratins[$rated]->id != $listGame->id))
+                                @case(isset($listGame->score) && $listGame->score>0 && (count($ratins)==0 || $ratins[$rated]->videogame_id != $listGame->videogame_id))
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-warning mt-2" data-bs-toggle="modal"
                                         data-bs-target="#review{{ $listGame->videogame->id }}">Reseñar</button>
@@ -118,7 +118,7 @@
                                         </div>
                                     </div>
                                 @break
-                                @case(isset($listGame->score) && $listGame->score>0 && $ratins[$rated]->id == $listGame->id)
+                                @case(isset($listGame->score) && $listGame->score>0 && $ratins[$rated]->videogame_id == $listGame->videogame_id)
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-warning mt-2" data-bs-toggle="modal"
                                         data-bs-target="#review{{ $listGame->videogame->id }}">Editar Reseña</button>
