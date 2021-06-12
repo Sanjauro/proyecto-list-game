@@ -13,7 +13,7 @@ class CreateUserListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('userlists', function (Blueprint $table) {
+        Schema::create('user_lists', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

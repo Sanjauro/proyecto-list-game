@@ -29,7 +29,7 @@ class HomeController extends Controller
     {
         $listGames = UserList::where('user_id', Auth::id())->with('videogame')->orderBy('videogame_id')->get();
 
-        $type = DB::select(DB::raw('SHOW COLUMNS FROM userlists WHERE Field = "status"'))[0]->Type;
+        $type = DB::select(DB::raw('SHOW COLUMNS FROM user_lists WHERE Field = "status"'))[0]->Type;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
         $statuses = array();
         foreach (explode(',', $matches[1]) as $value) {
@@ -61,15 +61,15 @@ class HomeController extends Controller
         ]);
 
         if (request("change-status"))
-            DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['status' => request("change-status")]);
+            DB::table('user_lists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['status' => request("change-status")]);
         else
-            DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['score' => request("change-score")]);
+            DB::table('user_lists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['score' => request("change-score")]);
         return redirect(route('home.index'));
     }
 
     public function destroy(Request $request)
     {
-        DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
+        DB::table('user_lists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
         DB::table('ratins')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
         return redirect(route('home.index'));
     }

@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="main">
-        <link rel="stylesheet" href={{ secure_asset('css/videogame.css') }}>
+        <link rel="stylesheet" href={{ asset('css/videogame.css') }}>
         <div class="container">
             @if (session('updated'))
                 <div class="alert alert-info" role="alert">¡Juego actualizado!</div>
@@ -12,7 +12,7 @@
             @endif
 
             <section class="row">
-                <img id="cover" src={{ secure_asset('images/covers/' . $videogame[0]->cover) }} alt="Portada"
+                <img id="cover" src={{ asset('images/covers/' . $videogame[0]->cover) }} alt="Portada"
                     class="col-lg-3 col-sm-12">
                 <div class="col-lg-9 col-sm-12 row text-center">
                     @php
