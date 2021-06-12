@@ -1,4 +1,4 @@
-<link rel="stylesheet" href={{ secure_asset('css/footer.css') }}>
+<link rel="stylesheet" href={{ asset('css/footer.css') }}>
 <footer class="bg-dark row text-light p-5 text-center">
     <div class="col-5">
         <h5>Teléfono</h5>

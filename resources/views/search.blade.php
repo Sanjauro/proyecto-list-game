@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="main">
-        <link rel="stylesheet" href={{ secure_asset('css/search.css') }}>
+        <link rel="stylesheet" href={{ asset('css/search.css') }}>
 
         <div id="busqueda" class="row mt-5">
             @foreach ($videogames_search as $videogame_search)
