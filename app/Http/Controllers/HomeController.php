@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ratin;
-use App\Models\UserList;
+use App\Models\Userlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -27,9 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $listGames = UserList::where('user_id', Auth::id())->with('videogame')->orderBy('videogame_id')->get();
+        $listGames = Userlist::where('user_id', Auth::id())->with('videogame')->orderBy('videogame_id')->get();
 
-        $type = DB::select(DB::raw('SHOW COLUMNS FROM userlists WHERE Field = "status"'))[0]->Type;
+        $type = DB::select(DB::raw('SHOW COLUMNS FROM Userlists WHERE Field = "status"'))[0]->Type;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
         $statuses = array();
         foreach (explode(',', $matches[1]) as $value) {
@@ -49,7 +49,7 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        UserList::create(['user_id' => Auth::id(), "videogame_id" => $request->videogame_id]);
+        Userlist::create(['user_id' => Auth::id(), "videogame_id" => $request->videogame_id]);
         return redirect(route('home.index'));
     }
 
@@ -61,15 +61,15 @@ class HomeController extends Controller
         ]);
 
         if (request("change-status"))
-            DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['status' => request("change-status")]);
+            DB::table('Userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['status' => request("change-status")]);
         else
-            DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['score' => request("change-score")]);
+            DB::table('Userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->update(['score' => request("change-score")]);
         return redirect(route('home.index'));
     }
 
     public function destroy(Request $request)
     {
-        DB::table('userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
+        DB::table('Userlists')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
         DB::table('ratins')->where('user_id', Auth::id())->where('videogame_id', request("idGame"))->delete();
         return redirect(route('home.index'));
     }

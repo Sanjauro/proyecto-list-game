@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Purchase;
 use App\Models\Ratin;
 use App\Models\User;
-use App\Models\UserList;
+use App\Models\Userlist;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +30,6 @@ class DatabaseSeeder extends Seeder
         ]);
         //Ratin::factory(50)->create();
         Purchase::factory(20)->create();
-        //UserList::factory(1)->create();
+        //Userlist::factory(1)->create();
     }
 }
