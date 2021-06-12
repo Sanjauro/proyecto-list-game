@@ -17,7 +17,7 @@
         <hr>
         <div id="juegos_proximos" class="row">
             @foreach ($videogames_next as $videogame)
-                <div class="juego col-lg-2 col-sm-6 text-center">
+                <div class="juego col-xl-2 col-md-4 col-sm-6 text-center">
                     <a href="/videojuegos/{{ $videogame->name }}"><img
                             src="images/covers/{{ $videogame->cover }}" class="card-img-top"
                             alt="Portada"><span>{{ $videogame->name }}</span></a>
