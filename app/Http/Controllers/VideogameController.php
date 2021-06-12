@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Ratin;
-use App\Models\Userlist;
+use App\Models\UserList;
 use Illuminate\Http\Request;
 use App\Models\Videogame;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +81,7 @@ class VideogameController extends Controller
         $videogame = Videogame::where('name', '=', $name)->get();
         $ratins = Ratin::where('videogame_id', '=', $videogame[0]->id)->get();
 
-        $listed = Userlist::where('user_id', Auth::id())->where('videogame_id', $videogame[0]->id)->exists();
+        $listed = UserList::where('user_id', Auth::id())->where('videogame_id', $videogame[0]->id)->exists();
 
         if (session('purchased'))
             $purchased = session('purchased');

@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Videogame;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class UserlistFactory extends Factory
+class UserListFactory extends Factory
 {
     /**
      * Define the model's default state.
