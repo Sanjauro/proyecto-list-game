@@ -163,7 +163,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php $rated++;?>
+                                    <?php 
+                                    if (count($ratins)!=$rated+1)
+                                    $rated++;
+                                    ?>
                                 @break
                                 @case(!isset($listGame->score) || $listGame->score<1)
                                     <!-- Button trigger modal -->
