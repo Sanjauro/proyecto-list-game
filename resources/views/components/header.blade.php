@@ -1,12 +1,12 @@
-<link rel="stylesheet" href={{ asset('css/header.css') }}>
+<link rel="stylesheet" href={{ secure_asset('css/header.css') }}>
 
 <title>{{ config('app.name', 'Laravel') }}</title>
 
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ secure_asset('js/app.js') }}" defer></script>
 
 <header class="row bg-danger p-3" id="header">
-    <a class="col-2" href="/"><img src={{ asset('images/logo.png') }} alt="Logo" name="logo" id="logo"></a>
+    <a class="col-2" href="/"><img src={{ secure_asset('images/logo.png') }} alt="Logo" name="logo" id="logo"></a>
 
     <form class="col-7" method="GET" action="{{ route('videogames.search') }}">
         @csrf

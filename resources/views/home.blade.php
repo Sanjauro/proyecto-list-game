@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="main">
-        <link rel="stylesheet" href={{ asset('css/home.css') }}>
+        <link rel="stylesheet" href={{ secure_asset('css/home.css') }}>
         
         @if ($errors->any())
             <div class="alert alert-danger mt-2" role="alert">
@@ -33,7 +33,7 @@
                     <tr>
                         <th scope="row">{{ ++$cont }}</th>
                         <td class="col-lg-3 col-sm-5"> <a href="/videojuegos/{{ $listGame->videogame->name }}"><img
-                                    src="{{ asset('images/covers/' . $listGame->videogame->cover) }}" alt="Portada"
+                                    src="{{ secure_asset('images/covers/' . $listGame->videogame->cover) }}" alt="Portada"
                                     class="cover w-50"></a></td>
                         <td>{{ $listGame->videogame->name }}</td>
                         <td>
